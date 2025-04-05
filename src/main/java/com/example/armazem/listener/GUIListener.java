@@ -20,7 +20,7 @@ public class GUIListener implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         String title = event.getView().getTitle();
         // Verifica se a GUI é de um armazém (título configurável, por exemplo "§6Armazém 1" ou "§6Armazém 1 de Jogador")
-        if (!title.startsWith("§6Armazém")) {
+        if (!title.startsWith("warehouse.title")) {
             return;
         }
 

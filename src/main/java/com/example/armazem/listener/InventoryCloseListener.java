@@ -22,18 +22,29 @@ public class InventoryCloseListener implements Listener {
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
+        ArmazemPlugin plugin = warehouseManager.getPlugin();
+        // Obtém o título base conforme configurado
+        String baseTitleRaw = plugin.getConfig().getString("warehouse.title", "&6Armazém");
+        String baseTitle = ChatColor.translateAlternateColorCodes('&', baseTitleRaw);
         String title = event.getView().getTitle();
-        if (!title.startsWith("§6Armazém")) return;
+
+        // Verifica se o título inicia com o baseTitle e se segue o formato esperado
+        if (!title.startsWith(baseTitle)) return;
+
+        // Espera o formato: "<baseTitle> - <número>" ou "<baseTitle> - <número> de <jogador>"
+        String[] parts = title.split(" - ");
+        if (parts.length < 2) return;
+
         int warehouseNumber;
         try {
-            String[] parts = title.split(" ");
-            warehouseNumber = Integer.parseInt(parts[1]);
+            warehouseNumber = Integer.parseInt(parts[1].split(" ")[0]);
         } catch (Exception e) {
             return;
         }
+
         Inventory topInventory = event.getView().getTopInventory();
         Player player = (Player) event.getPlayer();
-        // Obtém os conteúdos do inventário e substitui null por ItemStack de AIR
+        // Salva o inventário preservando todos os slots (substitui null por AIR)
         ItemStack[] contents = topInventory.getContents();
         List<ItemStack> updatedItems = new ArrayList<>();
         for (ItemStack item : contents) {
@@ -44,9 +55,10 @@ public class InventoryCloseListener implements Listener {
             }
         }
         warehouseManager.setItems(player.getUniqueId(), warehouseNumber, updatedItems);
-        ArmazemPlugin plugin = warehouseManager.getPlugin();
+
         String message = plugin.getConfig().getString("messages.warehouseUpdated", "Seu armazém {number} foi atualizado!");
         message = message.replace("{number}", String.valueOf(warehouseNumber));
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
     }
+
 }
