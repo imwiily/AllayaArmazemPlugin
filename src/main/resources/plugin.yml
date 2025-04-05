@@ -1,0 +1,45 @@
+name: AllayaArmazem
+main: com.example.armazem.ArmazemPlugin
+version: 1.1
+api-version: 1.21
+commands:
+  armazem:
+    description: Abre seu armazém.
+    usage: /armazem <número do armazém>
+  verarmazem:
+    description: Visualiza o armazém de um jogador.
+    usage: /verarmazem <jogador> <número do armazém>
+permissions:
+  allaya.armazem.1:
+    description: Permite acesso ao armazém 1.
+    default: true
+  allaya.armazem.2:
+    description: Permite acesso ao armazém 2.
+    default: op
+  allaya.armazem.3:
+    description: Permite acesso ao armazém 3.
+    default: op
+  allaya.armazem.4:
+    description: Permite acesso ao armazém 4.
+    default: op
+  allaya.armazem.5:
+    description: Permite acesso ao armazém 5.
+    default: op
+  allaya.armazem.6:
+    description: Permite acesso ao armazém 6.
+    default: op
+  allaya.armazem.7:
+    description: Permite acesso ao armazém 7.
+    default: op
+  allaya.armazem.8:
+    description: Permite acesso ao armazém 8.
+    default: op
+  allaya.armazem.9:
+    description: Permite acesso ao armazém 9.
+    default: op
+  allaya.armazem.10:
+    description: Permite acesso ao armazém 10.
+    default: op
+  allaya.armazem.ver:
+    description: Permite ver os armazéns dos jogadores.
+    default: op

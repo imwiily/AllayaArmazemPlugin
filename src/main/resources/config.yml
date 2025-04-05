@@ -1,0 +1,30 @@
+# Configurações do ArmazemPlugin
+
+# Valores para cada tipo de item (exemplo)
+item-values:
+  DIAMOND: 100
+  IRON_INGOT: 10
+
+# Capacidade máxima do armazém
+warehouse-capacity: 100
+
+# Notificações ao armazenar itens
+notify-on-store: true
+
+warehouse:
+  title: "&6Armazém"
+
+messages:
+  notAPlayer: "&cApenas jogadores podem usar esse comando."
+  usageArmazem: "&eUso: /armazem <número do armazém> (1 a 10)"
+  invalidWarehouseNumber: "&cNúmero do armazém inválido."
+  warehouseNumberRange: "&cNúmero do armazém deve ser entre 1 e 10."
+  noPermission: "&cVocê não tem permissão para acessar o armazém {number}."
+  usageVerArmazem: "&eUso: /verarmazem <jogador> <número do armazém>"
+  noPermissionVer: "&cVocê não tem permissão para ver os armazéns dos jogadores."
+  playerNotFound: "&cJogador não encontrado."
+  warehouseUpdated: "&aSeu armazém {number} foi atualizado!"
+  autoStore: "&aItem armazenado automaticamente no seu armazém 1!"
+  itemAdded: "&aItem adicionado ao armazém!"
+  itemRemoved: "&aItem removido do armazém!"
+
